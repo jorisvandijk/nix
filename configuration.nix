@@ -44,9 +44,11 @@
 		bat
 		batsignal
 		brightnessctl
+		calibre
 		cliphist
 		code-cursor
 		discord
+		docker
 		dunst
 		eza
 		feh
@@ -57,9 +59,12 @@
 		git
 		gnumake
 		gnutar
+		go
 		gparted
 		gzip
+		hugo
 		hyprlock
+		hyprpaper
 		hyprpolkitagent
 		hyprshot
 		kitty
@@ -67,6 +72,7 @@
 		libvirt
 		micro
 		mpv
+		openscad
 		p7zip
 		pamixer
 		pandoc
@@ -165,6 +171,7 @@
 			"wheel" 
 			"networkmanager" 
 			"libvirtd"
+			"docker"
 		]; 
 	};
 		
@@ -177,12 +184,18 @@
 	};
 
 	# ---- Virtualization ----
-	virtualisation.libvirtd = {
-		enable = true;
-	  	qemu = {
-	    	package = pkgs.qemu_kvm;
-	    	ovmf.enable = true;
+	virtualisation = 
+	{
+		libvirtd = 
+		{
+			enable = true;
+	  		qemu = 
+	  		{
+	    		package = pkgs.qemu_kvm;
+	    		ovmf.enable = true;
+	  		};
 	  	};
+	  	docker.enable = true;
 	};
 
 	boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
