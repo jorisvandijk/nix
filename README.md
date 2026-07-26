@@ -1,6 +1,6 @@
 # Nix
 
-This repository contains my personal NixOS configuration, structured using Nix flakes.
+This repository contains my personal Nix configuration files for macOS, structured using Nix flakes, using Nix Darwin.
 
 These files go along with my dotfiles.
 
