@@ -6,16 +6,16 @@
 
   programs.git = {
     enable = true;
-    userName = "Joris";
-    userEmail = "joris@jorisvandijk.com";
-    extraConfig = {
+    settings = {
+      user.name = "Joris";
+      user.email = "joris@jorisvandijk.com";
       init.defaultBranch = "main";
       core.hooksPath = "/Users/joris/.git-hooks";
     };
   };
 
-  xdg.configFile."kitty".source = ./config/kitty;
-  xdg.configFile."micro".source = ./config/micro;
+  xdg.configFile."kitty" = { source = ./config/kitty; force = true; };
+  xdg.configFile."micro" = { source = ./config/micro; force = true; };
   xdg.configFile."yazi/keymap.toml".source = ./config/yazi/keymap.toml;
 
   home.file.".newsboat/config".source = ./config/newsboat/config;
