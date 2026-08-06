@@ -1,5 +1,0 @@
-abbr -g "data"="root@192.168.1.5:/data/"
-abbr -g "pc"="|pbcopy"
-abbr -g "srv"="root@192.168.1.5:/data/"
-abbr "copy"="rsync -a --no-owner --partial --info=progress2 -e ssh"
-abbr "symlink"="ln -s"

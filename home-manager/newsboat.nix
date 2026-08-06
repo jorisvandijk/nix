@@ -1,73 +1,5 @@
-{ config, ... }:
+{ ... }:
 {
-  imports = [ ./shell.nix ];
-
-  home.username = "joris";
-  home.homeDirectory = "/Users/joris";
-  home.stateVersion = "26.05";
-
-  programs.git = {
-    enable = true;
-    settings = {
-      user.name = "Joris";
-      user.email = "joris@jorisvandijk.com";
-      init.defaultBranch = "main";
-      core.hooksPath = "/Users/joris/.git-hooks";
-    };
-  };
-
-  programs.kitty = {
-    enable = true;
-    font = {
-      name = "CaskaydiaCove Nerd Font Mono";
-      size = 14;
-    };
-    themeFile = "Dracula";
-    settings = {
-      bell_type = "none";
-      enable_audio_bell = "no";
-      confirm_os_window_close = -1;
-      scrollback_lines = 100000;
-      window_margin_width = 4;
-      enabled_layouts = "splits";
-    };
-    keybindings = {
-      "cmd+h" = "previous_tab";
-      "cmd+l" = "next_tab";
-      "cmd+j" = "previous_tab";
-      "cmd+k" = "next_tab";
-      "cmd+b" = "launch --location=vsplit";
-      "cmd+w" = "close_window_with_confirmation ignore-shell";
-    };
-  };
-
-  programs.micro = {
-    enable = true;
-    settings = {
-      colorscheme = "dracula";
-      mkparents = true;
-      softwrap = true;
-      wordwrap = true;
-    };
-  };
-
-  xdg.configFile."micro/bindings.json".source = ./config/micro/bindings.json;
-  xdg.configFile."micro/colorschemes/dracula.micro".source = ./config/micro/colorschemes/dracula.micro;
-
-  programs.yazi = {
-    enable = true;
-    enableZshIntegration = true;
-    keymap = {
-      manager.prepend_keymap = [
-        {
-          on = [ "Z" ];
-          run = "cd $(zoxide query --interactive)";
-          desc = "Jump with zoxide";
-        }
-      ];
-    };
-  };
-
   programs.newsboat = {
     enable = true;
     autoReload = true;
@@ -136,10 +68,4 @@
       { url = "https://jak2k.eu/bookmarks.xml/"; title = "Indieweb dude"; }
     ];
   };
-
-  home.file.".hammerspoon/init.lua".source = ./config/hammerspoon/init.lua;
-
-  xdg.configFile."karabiner/karabiner.json".source =
-    config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/git/nix/config/karabiner/karabiner.json";
 }

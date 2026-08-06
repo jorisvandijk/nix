@@ -15,18 +15,14 @@
     darwinConfigurations."macbook" = nix-darwin.lib.darwinSystem {
       specialArgs = { inherit inputs self; };
       modules = [
-        ./core.nix
-        ./nix.nix
-        ./packages.nix
-        ./security.nix
+        ./darwin
         nix-homebrew.darwinModules.nix-homebrew
-        ./homebrew.nix
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.users.joris = import ./home.nix;
+          home-manager.users.joris = import ./home-manager;
         }
       ];
     };

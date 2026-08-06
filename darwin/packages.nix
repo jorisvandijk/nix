@@ -17,7 +17,6 @@
     pkgs.go
     pkgs.hugo
     pkgs.imagemagick
-    pkgs.kitty
     pkgs.inetutils
     pkgs.innoextract
     pkgs.jq
@@ -33,7 +32,6 @@
     pkgs.ripgrep
     pkgs.rsync
     pkgs.shellcheck
-    pkgs.stow
     pkgs.terminal-notifier
     pkgs.tree
     pkgs.unar
