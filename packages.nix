@@ -2,8 +2,6 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  environment.pathsToLink = [ "/share/zsh-syntax-highlighting" ];
-
   environment.systemPackages = [
     pkgs._7zz
     pkgs.android-tools
@@ -14,7 +12,6 @@
     pkgs.eza
     pkgs.fd
     pkgs.ffmpeg
-    pkgs.fzf
     pkgs.git
     pkgs.git-filter-repo
     pkgs.go
@@ -23,11 +20,8 @@
     pkgs.inetutils
     pkgs.innoextract
     pkgs.jq
-    pkgs.kitty
-    pkgs.micro
     pkgs.mpv
     pkgs."nerd-fonts".symbols-only
-    pkgs.newsboat
     pkgs.p7zip
     pkgs.poppler
     pkgs.poppler-utils
@@ -47,9 +41,5 @@
     pkgs.watch
     pkgs.wget
     pkgs.zed-editor
-    pkgs.zoxide
-    pkgs.zsh-abbr
-    pkgs.zsh-autosuggestions
-    pkgs.zsh-syntax-highlighting
   ];
 }
