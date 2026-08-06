@@ -10,8 +10,6 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#macbook
     darwinConfigurations."macbook" = nix-darwin.lib.darwinSystem {
       specialArgs = { inherit inputs self; };
       modules = [
