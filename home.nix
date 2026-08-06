@@ -22,7 +22,7 @@
       name = "CaskaydiaCove Nerd Font Mono";
       size = 14;
     };
-    themeFile = ./config/kitty/dracula.conf;
+    themeFile = "Dracula";
     settings = {
       bell_type = "none";
       enable_audio_bell = "no";
@@ -73,7 +73,7 @@
     autoReload = true;
     reloadTime = 60;
     reloadThreads = 10;
-    browser = "open -a 'LibreWolf' %u";
+    browser = "\"open -a 'LibreWolf' %u\"";
     extraConfig = ''
       reload-only-visible-feeds no
       refresh-on-startup yes

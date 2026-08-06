@@ -17,6 +17,7 @@
     pkgs.go
     pkgs.hugo
     pkgs.imagemagick
+    pkgs.kitty
     pkgs.inetutils
     pkgs.innoextract
     pkgs.jq
