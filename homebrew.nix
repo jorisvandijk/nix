@@ -1,50 +1,58 @@
 { ... }:
 {
-  # Homebrew migration, staged — nothing below is active yet. Uncomment
-  # deliberately; adopting the existing imperative Homebrew install via
-  # nix-homebrew is a one-time migration, not a routine rebuild. See the
-  # Phase 2 rollout notes in the plan before flipping any of this on:
-  # snapshot `brew bundle dump` first, `darwin-rebuild build` and read the
-  # plan, only then `switch` with you present, then `brew doctor`.
-  #
-  # Verified against nix-homebrew's current README example and nix-darwin's
-  # modules/homebrew.nix on the 26.05 branch.
+  # Homebrew is Nix-managed via nix-homebrew (adopted the pre-existing
+  # imperative install) and declared here. Only what genuinely can't move to
+  # nixpkgs stays in this file — see packages.nix for what already migrated
+  # and why the rest is here (kernel extensions, unpackaged casks, etc).
 
-  # nix-homebrew = {
-  #   enable = true;
-  #   user = "joris";
-  #   enableRosetta = true;
-  #   autoMigrate = true;  # adopts the existing imperative Homebrew install
-  #   mutableTaps = true;  # false requires every tap below to be pinned as
-  #                        # a flake input (homebrew-core/cask + the 3
-  #                        # custom taps) — leave true unless you do that
-  # };
+  nix-homebrew = {
+    enable = true;
+    user = "joris";
+    enableRosetta = true;
+    autoMigrate = true;  # adopted the pre-existing imperative Homebrew install
+    mutableTaps = true;  # false would require the tap below to be pinned as
+                         # a flake input instead — leave true unless you do that
+  };
 
-  # homebrew = {
-  #   enable = true;
-  #   onActivation = {
-  #     cleanup = "none";  # conservative first pass; "uninstall" once the
-  #                        # list below is confirmed exhaustive
-  #     autoUpdate = true;
-  #   };
-  #
-  #   taps = [ "carlocab/personal" "gromgit/fuse" "olets/tap" ];
-  #
-  #   # micro is intentionally absent — already moved to packages.nix (pkgs.micro).
-  #   brews = [
-  #     "bash" "bat" "exiftool" "eza" "fd" "fzf" "git" "git-filter-repo" "go"
-  #     "hugo" "imagemagick" "innoextract" "jq" "mpv" "newsboat" "p7zip"
-  #     "poppler" "qpdf" "resvg" "ripgrep" "rsync" "sevenzip" "shellcheck"
-  #     "stow" "telnet" "terminal-notifier" "tree" "unar" "watch" "wget"
-  #     "zoxide" "zsh-autosuggestions" "zsh-syntax-highlighting"
-  #   ];
-  #
-  #   casks = [
-  #     "android-platform-tools" "bambu-studio" "claude" "claude-code"
-  #     "cryptomator" "cursor" "cursorcerer" "discord"
-  #     "font-symbols-only-nerd-font" "gimp" "hammerspoon" "hiddenbar" "iina"
-  #     "karabiner-elements" "kitty" "lulu" "macfuse" "orion" "oversight"
-  #     "pearcleaner" "privadovpn" "raycast" "utm" "zed"
-  #   ];
-  # };
+  homebrew = {
+    enable = true;
+    onActivation = {
+      cleanup = "none";  # conservative first pass; "uninstall" once the
+                         # list below is confirmed exhaustive
+      autoUpdate = true;
+    };
+
+    taps = [
+      "gromgit/fuse"
+    ];
+
+    # sshfs-mac: builds fine via nixpkgs too, but only functions via macfuse
+    # (kernel extension, can't be Nix-managed) — kept paired with it here.
+    # mole: nixpkgs has an unrelated, broken=true package with the same name.
+    # Non-core formulae need the tap-qualified name (`brew bundle dump`'s own
+    # convention) — short names don't resolve even with the tap trusted.
+    brews = [
+      "gromgit/fuse/sshfs-mac"
+      "mole"
+    ];
+
+    casks = [
+      "bambu-studio"
+      "claude"
+      "cryptomator"
+      "cursorcerer"
+      "discord"  # nixpkgs' Darwin build fails Gatekeeper on every version
+                 # bump ("is damaged") — see packages.nix for details
+      "gimp"
+      "hammerspoon"
+      "hiddenbar"
+      "karabiner-elements"
+      "lulu"
+      "macfuse"
+      "orion"
+      "oversight"
+      "pearcleaner"
+      "privadovpn"
+    ];
+  };
 }
