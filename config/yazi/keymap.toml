@@ -1,0 +1,4 @@
+[[manager.prepend_keymap]]
+on = ["Z"]
+run = "cd $(zoxide query --interactive)"
+desc = "Jump with zoxide"
