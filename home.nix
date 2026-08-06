@@ -22,7 +22,7 @@
       name = "CaskaydiaCove Nerd Font Mono";
       size = 14;
     };
-    theme = "Dracula";
+    themeFile = ./config/kitty/dracula.conf;
     settings = {
       bell_type = "none";
       enable_audio_bell = "no";

@@ -70,7 +70,7 @@
       export PATH="$HOME/git/scripts:$HOME/.local/bin:$HOME/go/bin:$PATH"
     '';
 
-    initExtra = ''
+    initContent = ''
       setopt hist_save_no_dups
       setopt hist_verify
 
@@ -78,7 +78,7 @@
         local st
         st=$(git --no-optional-locks status --porcelain 2>/dev/null) || return
         case $st in
-          ('')                                 echo " %F{green}✓%f" ;;
+          (''')                                echo " %F{green}✓%f" ;;
           ((|*$'\n')(DD|AU|UD|UA|DU|AA|UU)*)   echo " %F{red}●%f" ;;
           (*)                                  echo " %F{yellow}✘%f" ;;
         esac
