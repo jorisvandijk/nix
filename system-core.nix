@@ -6,7 +6,17 @@
   system.primaryUser = "joris";
   users.users.joris.home = "/Users/joris";
 
+  networking.hostName = "macbook";
+
   nix.settings.experimental-features = "nix-command flakes";
+
+  nix.gc = {
+    automatic = true;
+    interval = { Hour = 4; Minute = 0; Weekday = 1; };
+    options = "--delete-older-than 14d";
+  };
+
+  nix.optimise.automatic = true;
 
   security.pam.services.sudo_local.touchIdAuth = true;
 }

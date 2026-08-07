@@ -21,9 +21,8 @@
     pkgs.innoextract
     pkgs.jq
     pkgs.mpv
+    pkgs."nerd-fonts".caskaydia-cove
     pkgs."nerd-fonts".symbols-only
-    pkgs.p7zip
-    pkgs.poppler
     pkgs.poppler-utils
     pkgs.python314
     pkgs.qpdf
@@ -35,7 +34,6 @@
     pkgs.terminal-notifier
     pkgs.tree
     pkgs.unar
-    pkgs.unrar
     pkgs.utm
     pkgs.watch
     pkgs.wget

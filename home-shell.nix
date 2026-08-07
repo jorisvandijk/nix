@@ -62,6 +62,7 @@
 
     sessionVariables = {
       EDITOR = "micro";
+      VISUAL = "micro";
       COLORTERM = "truecolor";
     };
 
