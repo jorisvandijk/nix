@@ -11,8 +11,8 @@
   };
 
   xdg.configFile."micro/bindings.json".text = builtins.toJSON {
-    "Alt-/" = "comment";
-    "CtrlUnderscore" = "comment";
+    "Alt-/" = "lua:comment.comment";
+    "CtrlUnderscore" = "lua:comment.comment";
   };
 
   xdg.configFile."micro/colorschemes/dracula.micro".text = ''
