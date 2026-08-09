@@ -18,6 +18,7 @@
         ./system-core.nix
         ./system-packages.nix
         ./system-homebrew.nix
+        ./system-settings.nix
         nix-homebrew.darwinModules.nix-homebrew
         home-manager.darwinModules.home-manager
         {
