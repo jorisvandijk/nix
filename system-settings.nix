@@ -77,7 +77,6 @@
     };
 
     loginwindow = {
-      TALLogoutSavesState = false;
     };
 
     CustomUserPreferences = {
