@@ -38,7 +38,6 @@
 
     NSGlobalDomain = {
       AppleInterfaceStyle = "Dark";
-      AppleMiniaturizeOnDoubleClick = false;
       AppleShowScrollBars = "WhenScrolling";
       InitialKeyRepeat = 30;
       KeyRepeat = 2;
