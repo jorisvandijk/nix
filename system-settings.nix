@@ -26,7 +26,7 @@
       FXEnableExtensionChangeWarning = false;
       FXPreferredViewStyle = "Nlsv";
       FXRemoveOldTrashItems = true;
-      NewWindowTarget = "PfHm";
+      NewWindowTarget = "Home";
       QuitMenuItem = true;
       ShowExternalHardDrivesOnDesktop = false;
       ShowHardDrivesOnDesktop = false;
