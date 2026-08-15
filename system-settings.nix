@@ -37,7 +37,6 @@
     };
 
     NSGlobalDomain = {
-      AppleHighlightColor = "1.000000 0.749020 0.823529 Pink";
       AppleInterfaceStyle = "Dark";
       AppleMiniaturizeOnDoubleClick = false;
       AppleShowScrollBars = "WhenScrolling";
