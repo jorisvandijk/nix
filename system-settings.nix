@@ -8,7 +8,6 @@
       expose-group-apps = true;
       launchanim = false;
       mru-spaces = true;
-      no-bouncing = true;
       orientation = "bottom";
       persistent-apps = [];
       show-process-indicators = false;
