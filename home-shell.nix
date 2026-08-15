@@ -2,7 +2,6 @@
 {
   programs.zsh = {
     enable = true;
-
     history = {
       size = 100000;
       save = 200000;
@@ -20,6 +19,7 @@
         "copy" = "rsync -a --no-owner --partial --info=progress2 -e ssh";
         "symlink" = "ln -s";
       };
+
       globalAbbreviations = {
         "data" = "root@192.168.1.5:/data/";
         "pc" = "|pbcopy";

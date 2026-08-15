@@ -6,6 +6,7 @@
       name = "CaskaydiaCove Nerd Font Mono";
       size = 14;
     };
+
     themeFile = "Dracula";
     settings = {
       bell_type = "none";
@@ -14,6 +15,7 @@
       window_margin_width = 4;
       enabled_layouts = "splits";
     };
+
     keybindings = {
       "cmd+h" = "previous_tab";
       "cmd+l" = "next_tab";
