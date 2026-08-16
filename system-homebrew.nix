@@ -23,6 +23,7 @@
     brews = [
       "gromgit/fuse/sshfs-mac"
       "mole"
+      "reamp"
     ];
 
     casks = [
