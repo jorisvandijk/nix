@@ -23,7 +23,6 @@
     brews = [
       "gromgit/fuse/sshfs-mac"
       "mole"
-      "reamp"
     ];
 
     casks = [
@@ -41,6 +40,7 @@
       "oversight"
       "pearcleaner"
       "privadovpn"
+      "reamp"
     ];
   };
 }
